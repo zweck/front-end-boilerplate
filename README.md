@@ -1,4 +1,4 @@
-#eMedFusion front-end project boilerplate#
+#Front-end project boilerplate#
 
 ##Introduction##
 This project is a starting point for front-end development projects using a [Grunt JS](http://gruntjs.com/) workflow. It uses [SASS](http://sass-lang.com/) as a CSS preprocessor and [Jade](http://jade-lang.com/) as a HTML preprocessor. Fork this project to start building your website or app.
