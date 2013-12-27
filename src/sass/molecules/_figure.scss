@@ -1,0 +1,27 @@
+/**
+ * @file Defines a figure module with an image and accompanying caption
+ * @author Tom Jenkins tom.jenkins@kp360group.com
+ * @requires _settings.scss
+ */
+
+.figure-image {
+	padding: 5px;
+	background: #fff;
+}
+
+.figure-caption {
+	color: $darkgrey;
+}
+
+.figure {
+
+	padding: $wsunit / 2;
+	border: 1px solid $darkgrey;
+	background: $lightgrey;
+
+	// Layout	
+	.figure-image {
+		margin-bottom: $wsunit / 2;
+	}
+	
+}

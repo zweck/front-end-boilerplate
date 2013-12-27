@@ -1,0 +1,26 @@
+{
+  "name": "kp360agency",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "uglify-js": "~2.2.5",
+    "concat": "~0.2.4",
+    "jade": "~0.29.0",
+    "jshint": "~1.1.0",
+    "compass": "~0.1.0",
+    "underscore": "~1.4.4",
+    "gaze": "~0.3.3",
+    "tmp": "~0.0.17",
+    "copy": "~0.0.1",
+    "source-map": "~0.1.22",
+    "grunt-exec": "*",
+    "grunt-lib-contrib": "*",
+    "grunt-contrib-uglify": "~0.2.0",
+  	"grunt-contrib-concat": "~0.2.0",
+  	"grunt-contrib-jshint": "~0.4.3",
+  	"grunt-contrib-watch": "~0.3.1",
+  	"grunt-contrib-jade": "~0.5.0",
+    "grunt-contrib-compass" : "~0.2.0",
+    "grunt-contrib-copy" : "~0.4.1"
+  }
+}
