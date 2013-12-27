@@ -31,7 +31,3 @@ Individual grunt tasks can also be run one-off if necessary:
 ```> grunt js```
 
 ```> grunt copy:img```
-
-
-##Feedback and backports##
-Any improvements to this boilerplate should be raised as an issue in BitBucket/BugHerd and directed to the attention of [Tom Jenkins](mailto:tom.jenkins@kp360group.com), [Phil Hauser](mailto:phillip.hauser@emedfusion.com) or [Glynn Godwin](mailto:glynn.godwin:@emedfusion.com).
