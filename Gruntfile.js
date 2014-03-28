@@ -101,6 +101,19 @@ module.exports = function(grunt) {
 		}
 	};
 
+	// Replace REM with px
+	gruntConfig.remfallback= {
+		options: {
+			log: false,
+			replace: false
+		},
+		your_target: {
+			files: {}
+		}
+	};
+	gruntConfig.remfallback.your_target.files[env.dest+'/css/main.css'] = [env.dest+'/css/main.css'];
+
+
 	// Asset copying
 	gruntConfig.copy = {
 		img: {
@@ -120,7 +133,7 @@ module.exports = function(grunt) {
 		},
 		js: {
 			files: [
-				{expand: true, cwd: 'src/js', src: ['**'], dest: env.dest+'/js'}
+				{expand: true, cwd: 'src/**', src: ['**'], dest: env.dest+'/js'}
 			]
 		}
 	};
@@ -128,21 +141,21 @@ module.exports = function(grunt) {
 	// Task watching
 	gruntConfig.watch = {
 		js: {
-			files: ['src/js/**'],
+			files: ['src/**/*.js'],
 			tasks: ['js'],
 			options: {
 				interrupt: true
 			}
 		},
 		scss: {
-			files: ['src/sass/**'],
+			files: ['src/**/*.js'],
 			tasks: ['sass'],
 			options: {
 				interrupt: true
 			}
 		},
 		jade: {
-			files: ['src/jade/**'],
+			files: ['src/**/*.js'],
 			tasks: ['jade'],
 			options: {
 				interrupt: true
@@ -181,12 +194,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	grunt.loadNpmTasks('grunt-remfallback');
 
 	// Set up task aliases
 	grunt.registerTask('js', env.jsTasks); // Get JS tasks from environment (e.g. only run concat or uglify in release)
-	grunt.registerTask('default', ['jshint', 'jade', 'js', 'copy:img', 'copy:video', 'copy:content', 'compass']);
+	grunt.registerTask('default', ['jshint', 'jade', 'js', 'copy:img', 'copy:video', 'copy:content', 'compass', 'remfallback']);
 	
-	grunt.registerTask('sass', ['compass']);
+	grunt.registerTask('sass', ['compass', 'remfallback']);
 	
 	// Define dummy tasks to allow  CLI to pass environment
 	grunt.registerTask('dev', ['default', 'watch']);
