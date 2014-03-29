@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 
 	// JS linting
 	gruntConfig.jshint = {
-		files: ['gruntfile.js', 'src/js/*.js'],
+		files: ['gruntfile.js', 'src/**/**/*.js'],
 		options: {
 			globals: {
 				jQuery: true,
@@ -45,7 +45,8 @@ module.exports = function(grunt) {
 				document: true
 			},
 			ignores: [
-				'src/js/r.js'
+				'src/global-js/r.js',
+				'src/global-js/vendor/*.js'
 			]
 		}
 	};
@@ -54,8 +55,8 @@ module.exports = function(grunt) {
 	gruntConfig.requirejs = {
 		compile: {
 			options: {
-				baseUrl: "src/js",
-				mainConfigFile: "src/js/rconfig.js",
+				baseUrl: "src/**/**",
+				mainConfigFile: "src/global-js/rconfig.js",
 				out: env.dest+'/js/<%= pkg.name %>.min.js'
 			}
 		}
@@ -76,9 +77,9 @@ module.exports = function(grunt) {
 			files:  [
 				{
 					expand: true,
-					cwd: 'src/jade',
+					cwd: 'src/',
 					dest: env.dest,
-					src: ['*.jade'],
+					src: ['**/**/*.jade'],
 					ext: '.html'
 				}
 			],
@@ -93,8 +94,8 @@ module.exports = function(grunt) {
 					'sass-globbing'
 				],
 				imagesDir: 'src/img',
-				sassDir: 'src/sass',
-				cssDir: env.dest+'/stylesheets',
+				sassDir: 'src/global-scss/',
+				cssDir: env.dest+'/css',
 				outputStyle: env.sassOutputStyle,
 				relativeAssets: false
 			}
@@ -133,7 +134,11 @@ module.exports = function(grunt) {
 		},
 		js: {
 			files: [
-				{expand: true, cwd: 'src/**', src: ['**'], dest: env.dest+'/js'}
+				{expand: true, flatten: true, cwd: 'src/atoms', src: ['**/*.js'], dest: env.dest+'/js'},
+				{expand: true, flatten: true, cwd: 'src/molecules', src: ['**/*.js'], dest: env.dest+'/js'},
+				{expand: true, flatten: true, cwd: 'src/organisms', src: ['**/*.js'], dest: env.dest+'/js'},
+				{expand: true, flatten: true, cwd: 'src/templates', src: ['**/*.js'], dest: env.dest+'/js'},
+				{expand: true, flatten: false, cwd: 'src/global-js', src: ['**/*.js'], dest: env.dest+'/js'}
 			]
 		}
 	};
@@ -141,21 +146,21 @@ module.exports = function(grunt) {
 	// Task watching
 	gruntConfig.watch = {
 		js: {
-			files: ['src/**/*.js'],
+			files: ['src/**/**/*.js'],
 			tasks: ['js'],
 			options: {
 				interrupt: true
 			}
 		},
 		scss: {
-			files: ['src/**/*.js'],
+			files: ['src/**/**/*.scss'],
 			tasks: ['sass'],
 			options: {
 				interrupt: true
 			}
 		},
 		jade: {
-			files: ['src/**/*.js'],
+			files: ['src/**/**/*.jade'],
 			tasks: ['jade'],
 			options: {
 				interrupt: true
