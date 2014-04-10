@@ -4,7 +4,7 @@
 //- Template dependencies
 
 //- Default vars
-- var page = {id: "boilerplate", title: "Default Boilerplate Page"};
+- var page = {id: "page_default", title: "Default Boilerplate Page"};
 
 
 //- Import variables from calling page
@@ -33,7 +33,7 @@ html(lang="en")
 		meta(name="viewport", content="width=device-width")
 		meta(name="format-detection", content="telephone=no")
 		link(rel="stylesheet", href="css/main.css")
-		script(src="js/ie/html5shiv.min.js")
+		script(src="js/ie/html5shiv.js")
 
 		// if lt IE 9
 			script(src="js/ie/eventlistener.js")
@@ -45,7 +45,7 @@ html(lang="en")
 
 		if (env == "dev")
 			script(src="js/vendor/jquery.js")
-			script(src="js/vendor/elementQuery.min.js")
+			script(src="js/vendor/elementQuery.js")
 			script(data-main="js/main", src="js/vendor/require.js")
 		else
 			script(src="http://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places")

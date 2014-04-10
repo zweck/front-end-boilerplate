@@ -46,7 +46,8 @@ module.exports = function(grunt) {
 			},
 			ignores: [
 				'src/global-js/r.js',
-				'src/global-js/vendor/*.js'
+				'src/global-js/vendor/*.js',
+				'src/global-js/ie/*.js'
 			]
 		}
 	};
@@ -127,6 +128,11 @@ module.exports = function(grunt) {
 				{expand: true, cwd: 'src/content', src: ['**'], dest: env.dest+'/content'},
 			]
 		},
+		jade: {
+			files: [
+				{expand: true, cwd: 'dev', src: ['templates/**.jade'], dest: env.dest}
+			]					
+		},
 		video: {
 			files: [
 				{expand: true, cwd: 'src/video', src: ['**'], dest: env.dest+'/video'}
@@ -161,7 +167,7 @@ module.exports = function(grunt) {
 		},
 		jade: {
 			files: ['src/**/**/*.jade'],
-			tasks: ['jade'],
+			tasks: ['jade', 'copy:jade'],
 			options: {
 				interrupt: true
 			}
