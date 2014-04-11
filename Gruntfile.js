@@ -72,7 +72,8 @@ module.exports = function(grunt) {
 					env: buildType,
 					pkg: {
 						name: '<%= pkg.name %>'
-					}
+					},
+					acsConfig: grunt.file.readJSON('acs_config.json'),
 				}
 			},
 			files:  [
