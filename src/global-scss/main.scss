@@ -11,11 +11,11 @@
 @import "_normalise";
 
 // Modules
-@import "/atoms/**";
-@import "/molecules/**";
-@import "/organisms/**";
-@import "/templates/**";
-@import "/pages/**";
+@import "../atoms/**/**";
+@import "../molecules/**/**";
+@import "../organisms/**/**";
+@import "../templates/**/**";
+@import "../pages/**/**";
 
 // Debug/testing
 @import "_debug";
