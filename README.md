@@ -1,3 +1,6 @@
+#This is just for reference now. It has been implemented in the ACS [Yeoman generator](https://github.com/pjhauser/component-generator)#
+
+
 #Front-end project boilerplate#
 
 ##Introduction##
